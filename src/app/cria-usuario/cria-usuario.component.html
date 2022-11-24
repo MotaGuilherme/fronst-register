@@ -1,0 +1,93 @@
+<!-- Register user-->
+
+<form class="needs-validation" novalidate [formGroup]="userForm">
+
+  <div class="form-group" [formGroup]="userForm">
+    <div class="col-sm-2">
+      <div class="form-row">
+        <label for="name"> Name:</label>
+        <input type="text" 
+               class="form-control"
+               placeholder="Name"
+               id="name"
+               formControlName="name">
+<!--               [ngClass]="{ 'is-invalid': submitted && hasError('name')}">-->
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-row">
+        <label for="email">Email:</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Email"
+               id="email"
+               formControlName="email">
+<!--               [ngClass]="{ 'is-invalid': submitted && hasError('email')}">-->
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-row">
+        <label for="password">Password:</label>
+        <input type="password"
+               class="form-control"
+               id="password"
+               placeholder="Password"
+               formControlName="password">
+<!--               [ngClass]="{ 'is-invalid': submitted && hasError('password')}">-->
+      </div>
+    </div>
+
+
+    <div formGroupName="endereco">
+
+      <div class="col-sm-2">
+        <div class="form-row">
+          <label for="cep" class="control-label">CEP</label>
+          <input type="text"
+                 class="form-control"
+                 id="cep"
+                 formControlName="cep">
+<!--                 [ngClass]="{ 'is-invalid': submitted && hasError('endereco.cep')}"-->
+                 (blur)="consultaCEP()">
+        </div>
+      </div>
+
+
+      <div class="col-sm-2">
+        <div class="form-row">
+          <label for="street" class="control-label">Rua</label>
+          <input type="text"
+                 class="form-control"
+                 id="street"
+                 formControlName="street">
+        </div>
+
+        <div class="form-row">
+          <label for="district" class="control-label">Bairro</label>
+          <input type="text"
+                 class="form-control"
+                 id="district"
+                 formControlName="district">
+        </div>
+
+        <div class="form-row" >
+          <label for="locality" class="control-label">Cidade</label>
+          <input class="form-control"
+                 id="locality"
+                 formControlName="locality">
+        </div>
+
+        <div class="form-row" >
+          <label for="UF" class="control-label">Estado</label>
+          <input class="form-control"
+                 id="UF"
+                 formControlName="UF">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+<br>
+<button type="button" class="btn btn-primary" (click)="createUser()">Criar</button>
